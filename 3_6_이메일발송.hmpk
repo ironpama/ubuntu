@@ -32,7 +32,7 @@
     <Assembly>Newtonsoft.Json</Assembly>
   </AssemblyRef>
   <Script.Variables>
-    <Variable Type="string" Name="GPath" Default="@&quot;C:\Users\82109\Desktop\GS인증시나리오\&quot;" />
+    <Variable Type="string" Name="GPath" Default="@&quot;D:\testgit\ubuntu\&quot;" />
     <Variable Type="string" Name="ID" Default="" />
     <Variable Type="string" Name="PW" Default="" />
     <Variable Type="string" Name="mailToAddress" Default="" />
@@ -44,17 +44,24 @@
   <Flowchart GUID="c324a9e8-d283-4e08-9f5c-b7abec0c0b35">
     <Flowchart.StartNode>
       <Flowstep GUID="FlowStep-0">
-        <SendMailV2 DisplayName="Send Email (SMTP)" SmtpServer="&quot;smtp.worksmobile.com&quot;" SmtpPort="587" IsSSLConnection="True" UserId="ID" Password="PW" MailToAddress="mailToAddress" Title="&quot;GS인증시나리오&quot;" Contents="&quot;GS인증시나리오 TEST&quot;" Attachment="attachmentPath" GUID="c600b119-5eb8-43b7-ab11-f7a64867dfc9" />
+        <SendMailV2 DisplayName="Send Email (SMTP)" SmtpServer="&quot;smtp.worksmobile.com&quot;" SmtpPort="587" IsSSLConnection="True" IsBodyHtml="False" UserId="ID" Password="PW" MailToAddress="mailToAddress" Title="&quot;GS인증시나리오&quot;" Contents="&quot;GS인증시나리오 TEST&quot;" Attachment="attachmentPath" GUID="c600b119-5eb8-43b7-ab11-f7a64867dfc9" />
+      </Flowstep>
+      <Flowstep GUID="FlowStep-1">
+        <ExecuteReader DisplayName="Get data from DB" SQL="&quot;select * from test&quot;" TimeOut="30" OutputType="&quot;Array&quot;" GUID="1778027a-518d-4c75-84fa-5a0c2044ef20" />
       </Flowstep>
     </Flowchart.StartNode>
     <Flowchart.SymbolNode>
-      <Symbol>9EE2D41476A81DB5868BA904626545D7F22EA752B7D19D398D67DE58A38DB0A1</Symbol>
+      <Symbol>33D528D6049D4BB2ABABDED53C9E3D330B0EFDEC56A9F4A57D356C60CBE86563</Symbol>
     </Flowchart.SymbolNode>
+    <Flowchart.ArguNode />
+    <Flowchart.MemoNode />
     <Flowchart.DataNode />
   </Flowchart>
   <Diagram>
     <NodeData Key="28fe7e78-1158-4733-9b75-3bf06c267af8" Category="Start" Location="0 0" Text="START" Width="60" Height="60" />
     <NodeData Key="c600b119-5eb8-43b7-ab11-f7a64867dfc9" Category="NodeTemplate" Location="150 0" Text="Send email (SMTP)" Width="80" Height="80" />
+    <NodeData Key="1778027a-518d-4c75-84fa-5a0c2044ef20" Category="NodeTemplate" Location="200 110" Text="Get data from DB" Width="80" Height="80" />
     <LinkData From="28fe7e78-1158-4733-9b75-3bf06c267af8" To="c600b119-5eb8-43b7-ab11-f7a64867dfc9" FromPort="3" ToPort="L" />
+    <LinkData From="c600b119-5eb8-43b7-ab11-f7a64867dfc9" To="1778027a-518d-4c75-84fa-5a0c2044ef20" FromPort="R" ToPort="T" />
   </Diagram>
 </Script>
